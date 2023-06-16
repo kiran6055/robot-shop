@@ -1,3 +1,4 @@
 FROM nginx
-RUN  /static /usr/share/nginx/html/
+RUN  rm -rf /usr/share/nginx/html/index.html
+ADD /static /usr/share/nginx/html/
 EXPOSE 80
