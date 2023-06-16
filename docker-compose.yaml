@@ -48,7 +48,7 @@ services:
     depends_on:
       - rabbitmq
   mysql:
-    image: mysql
+    image: mysql:v1
     container_name: mysql
   shipping:
     image: shipping:v1
