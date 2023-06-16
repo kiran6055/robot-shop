@@ -3,7 +3,7 @@ RUN     yum update -y && yum install maven -y
 WORKDIR /opt/shipping
 COPY    pom.xml /opt/shipping
 COPY    src* /opt/shipping
-RUN mvn dependency:resolve
+RUN     mvn dependency:resolve
 RUN     mvn package
 
 FROM openjdk:8-jre-alpine
