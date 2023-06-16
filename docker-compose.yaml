@@ -12,9 +12,8 @@ services:
     - catalogue
     - user
     - cart
-    - shipping
     - payment
-    - ratings
+
 
   mongodb:
     image: mongo:v1
