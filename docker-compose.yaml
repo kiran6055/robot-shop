@@ -38,5 +38,13 @@ services:
     container_name: cart
     depends_on:
     - redis
+  rabbitmq:
+    image: rabbitmq
+    container_name: rabbitmq
+  payment:
+    image: payment:v1
+    container_name: payment
+    depends_on:
+      - rabbitmq
 
 
