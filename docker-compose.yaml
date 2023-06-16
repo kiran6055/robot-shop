@@ -24,18 +24,18 @@ services:
     image: redis:v1
     container_name: redis
   catalogue:
-    image: catalogue:v1
+    image: catalogue:v2
     container_name: catalogue
     depends_on:
     - mongodb
   user:
-    image: user:v1
+    image: user:v2
     container_name: user
     depends_on:
     - redis
     - mongodb
   cart:
-    image: cart:v1
+    image: cart:v2
     container_name: cart
     depends_on:
     - redis

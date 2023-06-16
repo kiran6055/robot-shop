@@ -1,5 +1,8 @@
 FROM node
 WORKDIR /opt/server/
+RUN addgroup user && adduser --system user && usermod -aG user user
+RUN chmod -R user:user /opt/server
+USER user
 COPY package.json /opt/server
 COPY server.js /opt/server
 RUN npm install
