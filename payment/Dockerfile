@@ -1,4 +1,4 @@
-FROM python
+FROM python:3.9
 EXPOSE 8080
 WORKDIR /app
 RUN addgroup payment && adduser --system payment && usermod -aG payment payment
