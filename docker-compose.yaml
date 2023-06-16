@@ -14,6 +14,7 @@ services:
     - cart
     - payment
     - ratings
+    - shipping
 
 
   mongodb:
