@@ -1,5 +1,5 @@
 FROM    almalinux as build
-RUN     yum update -y && yum install maven
+RUN     yum update -y && yum install maven -y
 WORKDIR /opt/shipping
 COPY    pom.xml /opt/shipping
 COPY    src* /opt/shipping
