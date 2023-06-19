@@ -1,4 +1,4 @@
-FROM node
+FROM node:14
 WORKDIR /opt/server/
 RUN addgroup user && adduser --system user && usermod -aG user user
 RUN chown -R user:user /opt/server
