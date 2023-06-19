@@ -24,8 +24,8 @@ COPY *.py /app/
 COPY  payment.ini /app/
 CMD ["uwsgi", "--ini", "payment.ini"]
 
-FROM python:3.9
-EXPOSE 8080
+#FROM python:3.9
+#EXPOSE 8080
 
 # Create a non-root user
 #RUN useradd -ms /bin/bash myuser
