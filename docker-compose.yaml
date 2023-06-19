@@ -16,12 +16,12 @@ volumes:
       o: bind
       type: none
       device: /home/ec2-user/rabbitmq
-  mongo:
+  mongodb:
     driver: local
     driver_opts:
       o: bind
       type: none
-      device: /home/ec2-user/mongo
+      device: /home/ec2-user/mongodb
   redis:
     driver: local
     driver_opts:
@@ -47,7 +47,7 @@ services:
     image: mongo:v1
     container_name: mongodb
     volumes:
-    - mongo:/data/db
+    - mongodb:/data/db
   redis:
     image: redis
     container_name: redis
