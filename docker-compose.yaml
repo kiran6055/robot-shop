@@ -2,6 +2,32 @@ version: "3.9"
 networks:
   kiranroboshop:
     driver: bridge
+volumes:
+  # this is equavlent to docker volume create name (named_volumes)
+  mysql:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: /home/ec2-user/mysql
+  rabbitmq:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: /home/ec2-user/rabbitmq
+  mongo:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: /home/ec2-user/mongo
+  redis:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: /home/ec2-user/redis
 services:
   web:
     image: "web:v1"
@@ -20,9 +46,13 @@ services:
   mongodb:
     image: mongo:v1
     container_name: mongodb
+    volumes:
+    - mongodb:/data/db
   redis:
     image: redis:v1
     container_name: redis
+    volumes:
+    - redis:/data
   catalogue:
     image: catalogue:v2
     container_name: catalogue
@@ -42,6 +72,8 @@ services:
   rabbitmq:
     image: rabbitmq
     container_name: rabbitmq
+    volumes:
+    - rabbitmq:/var/lib/rabbitmq
   payment:
     image: payment:v1
     container_name: payment
@@ -50,6 +82,8 @@ services:
   mysql:
     image: mysql:v1
     container_name: mysql
+    volumes:
+    - mysql:/var/lib/mysql
   shipping:
     image: shipping:v2
     container_name: shipping
