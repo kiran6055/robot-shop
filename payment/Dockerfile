@@ -1,9 +1,10 @@
 FROM python:3.9
 EXPOSE 8080
+USER root
 WORKDIR /app
-RUN addgroup payment && adduser --system payment && usermod -aG payment payment
-RUN chown -R payment:payment /app/
-USER payment
-COPY rabbitmq.py payment.ini payment.py rabbitmq.py requirements.txt /app/
+COPY requirements.txt /app/
 RUN pip install -r requirements.txt
-ENTRYPOINT ["uwsgi", "--ini", "payment.ini"]
+COPY *.py /app/
+COPY payment.ini /app/
+#CMD ["python", "payment.py"]
+CMD ["uwsgi", "--ini", "payment.ini"]
