@@ -14,6 +14,7 @@ FROM python:3.9
 EXPOSE 8080
 
 # Create a non-root user
+WORKDIR /app
 RUN addgroup payment && adduser --system payment && usermod -aG payment payment
 RUN chown -R payment:payment /app/
 USER payment
