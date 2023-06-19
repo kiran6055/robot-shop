@@ -5,6 +5,6 @@ RUN chown -R cart:cart /opt/server
 USER cart
 COPY package.json /opt/server
 COPY server.js /opt/server
-RUN npm install
+RUN sudo npm install
 EXPOSE 8080
 ENTRYPOINT ["node", "server.js"]
