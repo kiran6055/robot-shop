@@ -19,7 +19,7 @@ RUN addgroup payment && adduser --system payment && usermod -aG payment payment
 RUN chown -R payment:payment /app/
 USER payment
 COPY requirements.txt /app/
-RUN pip install --payment -r requirements.txt
+RUN pip install -r requirements.txt
 COPY *.py /app/
 COPY  payment.ini /app/
 CMD ["uwsgi", "--ini", "payment.ini"]
