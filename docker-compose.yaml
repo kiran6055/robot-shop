@@ -54,7 +54,7 @@ services:
     volumes:
     - redis:/data
   catalogue:
-    image: catalogue:v2
+    image: catalogue:v1
     container_name: catalogue
     depends_on:
     - mongodb
